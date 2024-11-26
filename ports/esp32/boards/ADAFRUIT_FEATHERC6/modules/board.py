@@ -42,13 +42,13 @@ def rgb_color_wheel(wheel_pos):
 
 
 def led_set(state):
-    """Set the state of the BLUE LED on IO15"""
+    """Set the state of the LED on IO15"""
     featherc6.led_set(state)
 
 
-def toggle_led(state):
-    """Toggle the BLUE LED on IO15"""
-    featherc6.toggle_led(state)
+def toggle_led():
+    """Toggle the LED on IO15"""
+    featherc6.toggle_led()
 
 
 def lowpower():

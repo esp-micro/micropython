@@ -49,8 +49,8 @@ def get_bat_voltage():
         set_i2c_power(True)
 
     try:
-        voltage = max17048.cell_voltage
-        log(f" :: battery voltage read: {voltage} V")
+        voltage = int(round(max17048.cell_voltage * 1000, 0))
+        log(f" :: battery voltage read: {voltage} mV")
         return voltage
     except:
         log(f"Error reading battery voltage: {e}")
@@ -137,13 +137,13 @@ def rgb_color_wheel(wheel_pos):
 
 # LED control
 def led_set(state):
-    """Set the state of the BLUE LED on IO13"""
+    """Set the state of the LED on IO13"""
     l = Pin(LED, Pin.OUT)
     l.value(state)
 
 
-def toggle_led(state):
-    """Toggle the BLUE LED on IO13"""
+def toggle_led():
+    """Toggle the LED on IO13"""
     l = Pin(LED, Pin.OUT)
     l.value(not l.value())
 
