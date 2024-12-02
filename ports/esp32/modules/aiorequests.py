@@ -1,3 +1,5 @@
+# https://github.com/StevenRuest/async_urequests/tree/master
+
 import gc
 gc.collect()
 import uasyncio as asyncio
@@ -5,7 +7,7 @@ gc.collect()
 gc.threshold(gc.mem_free() // 4 + gc.mem_alloc()) # sets threshold to 1/4 of heap size
 
 
-HTTP__version__ = "1.0"
+HTTP__version__ = "1.1"
 __version__ = (0, 0, 2)
 
 

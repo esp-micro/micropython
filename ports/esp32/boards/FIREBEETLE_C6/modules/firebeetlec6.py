@@ -39,7 +39,7 @@ def led_set(state):
 
 
 def toggle_led():
-    """Toggle the BLUE LED on IO15"""
+    """Toggle the LED on IO15"""
     l = Pin(LED, Pin.OUT)
     l.value(not l.value())
 

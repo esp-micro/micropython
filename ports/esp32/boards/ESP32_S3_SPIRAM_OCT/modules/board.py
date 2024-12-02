@@ -2,6 +2,8 @@ BOARD_IDENTIFIER = "ESP32_S3_SPIRAM_OCT"
 
 BOOT_PIN = const(0)
 
+LED_PIN = 48
+
 
 def lowpower():
     """Enter low power mode."""
@@ -9,13 +11,27 @@ def lowpower():
 
 
 def led_set(state):
-    """Set the state of the LED on IO15"""
-    pass
+    """Set the state of the LED"""
+    import neopixel, machine
+    if state:
+        np = neopixel.NeoPixel(machine.Pin(LED_PIN), 1)
+        np[0] = (255, 0, 0)
+        np.write()
+    else:
+        np = neopixel.NeoPixel(machine.Pin(LED_PIN), 1)
+        np[0] = (0, 0, 0)
+        np.write()
 
 
 def toggle_led():
-    """Toggle the LED on IO15"""
-    pass
+    """Toggle the LED"""
+    import neopixel, machine
+    np = neopixel.NeoPixel(machine.Pin(LED_PIN), 1)
+    if np[0] == (255, 0, 0):
+        np[0] = (0, 0, 0)
+    else:
+        np[0] = (255, 0, 0)
+    np.write()
 
 
 def get_bat_voltage():
